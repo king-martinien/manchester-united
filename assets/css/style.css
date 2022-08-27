@@ -6,7 +6,7 @@
 }
 @font-face {
   font-family: "ITC Avant garde Gothic";
-  src: url("/assets/fonts/ITCAvantGardeStd-BoldCn.ttf") format("truetype");
+  src: url("/assets/fonts/ITCAvantGardeStd-Bold.ttf") format("truetype");
   font-weight: bold;
   font-display: swap;
 }
@@ -86,9 +86,18 @@ h6 {
 
 .container {
   padding: 0 1.2rem;
-  width: 1124px;
   margin: 0 auto;
-  max-width: 90%;
+}
+@media screen and (min-width: 420px) {
+  .container {
+    max-width: 90%;
+  }
+}
+@media screen and (min-width: 900px) {
+  .container {
+    width: 90%;
+    max-width: 1124px;
+  }
 }
 
 .header {
@@ -168,6 +177,9 @@ h6 {
 @media screen and (min-width: 900px) {
   .header {
     padding: 1rem 0;
+    position: fixed;
+    width: 100%;
+    z-index: 9999;
   }
   .header-container {
     border-bottom: 1px solid #FFF;
@@ -183,6 +195,7 @@ h6 {
     display: flex;
     align-items: center;
     gap: 2.5rem;
+    color: #FFF;
   }
   .header--logo img {
     width: 50px;
@@ -210,6 +223,161 @@ h6 {
     padding: 0.4rem 1.5rem;
     background: #FFF;
     color: #131313;
+  }
+}
+
+.hero {
+  height: 420px;
+  position: relative;
+}
+.hero::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+.hero-container {
+  height: 100%;
+  margin: 0 0.3rem;
+  background-image: url("/assets/img/manchester-united-cover.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position-x: 55%;
+}
+.hero-intro {
+  position: absolute;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  color: #FFF;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  z-index: 20;
+}
+.hero-intro .hero-subtitle {
+  font-weight: normal;
+  margin-bottom: 1.2rem;
+  transform: translateY(50px);
+}
+.hero-intro .hero-title {
+  text-transform: uppercase;
+  font-size: 2.3rem;
+  transform: translateY(50px);
+}
+.hero-news {
+  margin-top: 1rem;
+}
+.hero-news-content {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  grid-template-areas: "news1 news2" "news3 news3";
+}
+.hero-news .news {
+  border: 1px solid #FFF;
+  font-size: 13px;
+  padding: 0.8rem 0.3rem;
+}
+.hero-news .news .title, .hero-news .news .description {
+  color: #FFF;
+  text-transform: uppercase;
+  font-family: "ITC Avant garde Gothic", sans-serif;
+  margin-bottom: 0.5rem;
+}
+.hero-news .news .description {
+  min-height: 30px;
+}
+.hero-news .news:first-child {
+  border-right: 0;
+  grid-area: news1;
+}
+.hero-news .news:nth-child(2) {
+  grid-area: news2;
+}
+.hero-news .news:last-child {
+  grid-area: news3;
+  border-top: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+.hero-news .news:last-child img {
+  width: 24px;
+}
+.hero-news .news:last-child .title {
+  text-transform: lowercase;
+  transform: rotate(25deg);
+}
+@media screen and (min-width: 900px) {
+  .hero {
+    height: 100vh;
+  }
+  .hero-container {
+    padding: 0;
+  }
+  .hero-intro {
+    position: relative;
+    padding: 0;
+  }
+  .hero-intro .hero-title, .hero-intro .hero-subtitle {
+    transform: translateY(0);
+  }
+  .hero-intro .hero-subtitle {
+    font-size: 1.1rem;
+  }
+  .hero-intro .hero-title {
+    font-size: 4.5rem;
+    max-width: 50%;
+  }
+  .hero-news {
+    padding: 0;
+    position: absolute;
+    bottom: 3rem;
+    left: 50%;
+    z-index: 20;
+    transform: translateX(-50%);
+  }
+  .hero-news-content {
+    grid-template-areas: unset;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(1, 1fr);
+  }
+  .hero-news .news {
+    font-size: 1rem;
+    padding: 2rem;
+    background-color: rgba(255, 29, 32, 0.2);
+    border: 2px solid #FFF;
+  }
+  .hero-news .news .title {
+    font-size: 12px;
+    margin-bottom: 1rem;
+  }
+  .hero-news .news .description {
+    min-height: 60px;
+    max-width: 80%;
+    line-height: 26px;
+  }
+  .hero-news .news .date {
+    font-size: 12px;
+  }
+  .hero-news .news:first-child {
+    grid-area: unset;
+  }
+  .hero-news .news:nth-child(2) {
+    grid-area: unset;
+  }
+  .hero-news .news:last-child {
+    grid-area: unset;
+    border-top: 2px solid #FFF;
+  }
+  .hero-news .news:last-child .title {
+    font-size: 24px;
   }
 }
 
