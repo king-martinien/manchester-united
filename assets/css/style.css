@@ -57,31 +57,37 @@ ul {
 h1 {
   font-family: "ITC Avant garde Gothic", sans-serif;
   font-weight: bold;
+  color: #FFF;
 }
 
 h2 {
   font-family: "ITC Avant garde Gothic", sans-serif;
   font-weight: bold;
+  color: #FFF;
 }
 
 h3 {
   font-family: "ITC Avant garde Gothic", sans-serif;
   font-weight: bold;
+  color: #FFF;
 }
 
 h4 {
   font-family: "ITC Avant garde Gothic", sans-serif;
   font-weight: bold;
+  color: #FFF;
 }
 
 h5 {
   font-family: "ITC Avant garde Gothic", sans-serif;
   font-weight: bold;
+  color: #FFF;
 }
 
 h6 {
   font-family: "ITC Avant garde Gothic", sans-serif;
   font-weight: bold;
+  color: #FFF;
 }
 
 .container {
@@ -102,6 +108,11 @@ h6 {
 
 .header {
   padding: 0.8rem 0;
+  transition: 0.4s ease-in;
+}
+.header.scrolled {
+  background-color: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(10px);
 }
 .header-container {
   display: flex;
@@ -227,7 +238,6 @@ h6 {
 }
 
 .hero {
-  height: 420px;
   position: relative;
 }
 .hero::after {
@@ -240,12 +250,13 @@ h6 {
   background-color: rgba(0, 0, 0, 0.5);
 }
 .hero-container {
-  height: 100%;
   margin: 0 0.3rem;
   background-image: url("/assets/img/manchester-united-cover.jpg");
   background-repeat: no-repeat;
   background-size: cover;
   background-position-x: 55%;
+  height: 420px;
+  position: relative;
 }
 .hero-intro {
   position: absolute;
@@ -271,6 +282,8 @@ h6 {
 }
 .hero-news {
   margin-top: 1rem;
+  position: relative;
+  z-index: 20;
 }
 .hero-news-content {
   display: grid;
@@ -315,11 +328,9 @@ h6 {
   transform: rotate(25deg);
 }
 @media screen and (min-width: 900px) {
-  .hero {
-    height: 100vh;
-  }
   .hero-container {
     padding: 0;
+    height: 100vh;
   }
   .hero-intro {
     position: relative;
@@ -340,7 +351,6 @@ h6 {
     position: absolute;
     bottom: 3rem;
     left: 50%;
-    z-index: 20;
     transform: translateX(-50%);
   }
   .hero-news-content {
@@ -378,6 +388,118 @@ h6 {
   }
   .hero-news .news:last-child .title {
     font-size: 24px;
+  }
+}
+
+.videos {
+  padding: 3rem 0px;
+}
+.videos .container header {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+.videos .container header .title {
+  font-size: 2.5rem;
+  line-height: 2.6rem;
+  text-transform: uppercase;
+  position: relative;
+  margin-bottom: 1.5rem;
+}
+.videos .container header .title::after {
+  content: "";
+  position: absolute;
+  right: -23px;
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  border: 1px solid #FF1D20;
+  top: 30%;
+  transform: translateY(-50%);
+}
+.videos .container header div {
+  text-transform: uppercase;
+  font-weight: bold;
+  display: flex;
+  flex-direction: column;
+  font-size: 14px;
+  margin-bottom: 2rem;
+}
+.videos .container header div .red {
+  color: #FF1D20;
+}
+.videos .container .video {
+  border: 1px solid #FFF;
+  border-bottom: 0;
+  height: 160px;
+}
+.videos .container .video .img {
+  border: 2px solid #FFF;
+  border-radius: 50%;
+  height: 100%;
+  overflow: hidden;
+}
+.videos .container .video .img img {
+  height: 100%;
+  object-fit: cover;
+}
+.videos .container .group-videos {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  margin-bottom: 1rem;
+}
+.videos .container .group-videos .group-video {
+  display: grid;
+  grid-template-rows: 1fr 1.2fr;
+}
+.videos .container .group-videos .group-video .title {
+  padding: 1rem;
+  font-size: 0.9rem;
+  border: 1px solid #FFF;
+}
+.videos .container .group-videos .group-video .img {
+  padding: 0.5rem;
+  border: 1px solid #FFF;
+}
+.videos .container .group-videos .group-video .img img {
+  height: 100%;
+  object-fit: cover;
+}
+.videos .container .more {
+  border-radius: 100px;
+  width: 100%;
+  border: 2px solid #FF1D20;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  padding: 0.8rem;
+}
+@media screen and (min-width: 900px) {
+  .videos {
+    padding: 8rem 0;
+  }
+  .videos .container {
+    padding: 0;
+  }
+  .videos .container header {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+  .videos .container header .title, .videos .container header div {
+    font-size: 3rem;
+  }
+  .videos .container .video {
+    height: 350px;
+  }
+  .videos .container .group-videos {
+    grid-template-columns: repeat(4, 1fr);
+  }
+  .videos .container .group-videos .group-video {
+    grid-template-rows: 1fr auto;
+  }
+  .videos .container .group-videos .group-video .img {
+    padding: 1rem 0.5rem;
   }
 }
 
